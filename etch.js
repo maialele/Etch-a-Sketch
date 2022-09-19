@@ -1,5 +1,6 @@
 const container = document.getElementById("container");
 const slider = document.getElementById("volsetting");
+const gridValue = document.getElementById("weight");
 
 function makeRows(rows, cols) {
   container.style.setProperty('--grid-rows', rows);
@@ -10,12 +11,8 @@ function makeRows(rows, cols) {
   };
 };
 
-makeRows(12, 12);
-
-function chooseGridSize(){
-
-
-
-    
-    
+function reset(rows, cols) {
+  container.innerHTML = ""
 }
+
+makeRows(12, 12);
