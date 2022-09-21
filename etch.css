@@ -42,3 +42,6 @@ h1 {
     background-color: blue;
   }
   
+  .grid-item:focus {
+    background-color: red;
+  }
