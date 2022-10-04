@@ -31,10 +31,15 @@ h1 {
     border: 1px solid black;
       
 }
+
+#buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
   
   .grid-item {
     padding: 5px;
-    border: 1px solid #ddd;
     min-width: 0; 
   }
 
