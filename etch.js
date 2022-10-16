@@ -67,7 +67,7 @@ function makeSketchpad(rows, cols) {
       }
       //a simple click would also work.
       cell.onclick = () => {
-        cell.style.background = '#'+(0x1000000+Math.random()*0xffffff).toString(16).substr(1,6);
+        cell.style.background =colorPicker.value;
       }
     });
     
@@ -89,6 +89,8 @@ function makeSketchpad(rows, cols) {
     clearButton.addEventListener('click', clearMode);
 
     container.appendChild(cell).className = "grid-item";
+
+    document.getElementsByClassName("grid-item")[c].setAttribute('draggable', false);
   };
 }
 

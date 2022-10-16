@@ -1,8 +1,18 @@
-h1 {
+#header {
   text-align: center;
-  font-size: 40px;
+  font-size: 45px; 
 }
 
+.grid-item {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  cursor: default;
+
+  }
+  
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
@@ -22,14 +32,22 @@ h1 {
     width: 800px;
     height: 800px;
     grid-auto-columns: auto;
-    position: absolute;
-    margin-top: 200px;
+    position: fixed;
+    margin-top: 220px;
     margin-bottom: 200px;
     top: 0;
     bottom: 0;
     grid-auto-rows: 30%;
-    border: 1px solid black;
+    border-style: groove;
+    border-color: lightblue;
       
+}
+
+#resizeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
 }
 
 #buttonsContainer {
@@ -46,7 +64,7 @@ h1 {
   .grid-item:hover {
     background-color: blue;
   }
-  
-  .grid-item:focus {
-    background-color: red;
+
+  body {
+    font-family: 'Poppins';
   }

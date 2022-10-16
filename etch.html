@@ -2,16 +2,21 @@
 <html>
     <head>
         <link rel="stylesheet" href="etch.css">
-        <h1>Etch a Sketch</h1>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> 
     </head>
     <body>
+        <div id="header">Etch a Sketch</div>
         <div id="pageStructure">
-            <div id="container">
+            <div id="container" >
             </div>
-            <label for="weight">resize grid</label>
-            <input type="range" id="weight" min="12" value="12" max="64" step="1" list="volsettings" onchange="reset(this.value,this.value), makeSketchpad(this.value,this.value)">
-            <datalist id="volsettings">
-            </datalist>
+            <div id="resizeContainer">
+                <label id="resize" for="weight">resize grid</label>
+                <input type="range" id="weight" min="12" value="12" max="64" step="1" list="volsettings" onchange="reset(this.value,this.value), makeSketchpad(this.value,this.value)">
+                <datalist id="volsettings">
+                </datalist>
+            </div>
             <div id="buttonsContainer">
                 <input type="color" id="colorpicker">
                 <button id="clear">Clear</button>
