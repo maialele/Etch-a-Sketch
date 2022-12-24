@@ -1,3 +1,4 @@
+
 //constants imported from etch.html
 const container = document.getElementById("container");
 const colorPicker = document.getElementById("colorpicker");

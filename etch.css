@@ -48,12 +48,18 @@
   flex-direction: column;
   align-items: center;
   margin: 20px;
+  font-family: 'Poppins';
+  font-weight: 300;
 }
 
 #buttonsContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+}
+
+#buttonsContainer button {
+  font-family: 'Poppins';
+  font-weight: 300;
 }
   
   .grid-item {
@@ -67,4 +73,5 @@
 
   body {
     font-family: 'Poppins';
-  }
+    font-weight: 700;
+    }
