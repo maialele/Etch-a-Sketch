@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                sh 'docker --version'
+                echo 'hello world' >> hello.txt
+                cat hello.txt
+                docker --version
             }
         }
     }
