@@ -7,8 +7,12 @@ pipeline {
     stage('Cloning Git') {
       steps {
         git 'https://github.com/maialele/Etch-a-Sketch.git'
-        sh 'docker build -t maia/etch .'
       }
     }     
+    stage('building docker image') {
+      steps {
+        sh 'docker build -t maia/etch .'
+      }
+    }
   }
 }
