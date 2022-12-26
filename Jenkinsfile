@@ -1,21 +1,19 @@
 pipeline {
-    agent any 
+    agent any
     stages {
-        stage('Build') { 
-            steps {
-                sh 'echo 'hello world' '
+        stage('Build') {
+            agent {
+                docker {
+                    image 'gradle:6.7-jdk11'
+                    // Run the container on the node specified at the
+                    // top-level of the Pipeline, in the same workspace,
+                    // rather than on a new node entirely:
+                    reuseNode true
+                }
             }
-        }
-        stage('Test') { 
             steps {
-                sh 'echo 'test stage''
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                sh 'echo 'deploy stage''
+                sh 'gradle --version'
             }
         }
     }
 }
-
