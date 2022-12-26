@@ -1,13 +1,10 @@
 pipeline {
-  agent any
-  
-  tools {nodejs "node"}
-  
-  stages {
-    stage('building docker image') {
-      steps {
-        sh 'docker build -t maia/etch .'
-      }
+    agent { docker { image 'node:16.17.1-alpine' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'node --version'
+            }
+        }
     }
-  }
 }
