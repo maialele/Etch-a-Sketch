@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Cloning Git') {
       steps {
-        git 'https://github.com/maialele/Etch-a-Sketch.git'
+        git 'https://github.com/maialele/Etch-a-Sketch'
       }
     }     
     stage('building docker image') {
