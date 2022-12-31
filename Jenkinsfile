@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent docker-dind
 
   stages {
     stage('Cloning Git') {
