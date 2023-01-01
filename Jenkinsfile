@@ -1,19 +1,14 @@
 pipeline {
-  agent {
-    label 'docker-dind'
-  }
-  stages {
-    stage('Cloning Git') {
-      steps {
-        git 'https://github.com/maialele/Etch-a-Sketch.git'
-      }
-    }     
-    stage('Docker Build') {
-    	agent any
-      steps 
-      {
-      	sh 'docker build -t maia/etch .'
-      }
+    agent {
+        docker { image 'node:16-alpine'}
     }
-  }
+
+    stages {
+        stage('test') {
+            steps {
+                sh 'node --version'
+                sh 'docker --version'
+            }
+        }
+    }
 }
