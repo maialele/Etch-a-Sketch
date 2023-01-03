@@ -23,6 +23,7 @@ pipeline {
     stage('Run docker') {
       steps {
         container('docker') {
+          sh 'sudo systemctl status docker'
           sh 'docker build .'
         }
         container('node') {
