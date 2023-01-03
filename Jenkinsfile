@@ -23,7 +23,7 @@ pipeline {
     stage('Run docker') {
       steps {
         container('docker') {
-          sh 'docker --version'
+          sh 'docker build .'
         }
         container('node') {
           sh 'npm version'
