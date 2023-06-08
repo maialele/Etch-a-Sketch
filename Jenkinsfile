@@ -1,34 +1,33 @@
 pipeline {
-  agent {
-    kubernetes {
-      yaml '''
-        apiVersion: v1
-        kind: Pod
-        spec:
-          containers:
-          - name: docker
-            image: docker:dind
-            command:
-            - cat
-            tty: true
-          - name: node
-            image: node:16-alpine3.12
-            command:
-            - cat
-            tty: true
-        '''
-    }
-  }
-  stages {
-    stage('Run docker') {
-      steps {
-        container('docker') {
-          sh 'docker build .'
+    agent any
+
+    stages {
+        
+        stage('Remove Artifacts') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                    sh "docker rm --force etch-app"
+                }
+            }
         }
-        container('node') {
-          sh 'npm version'
+        
+        stage('Build active containers website image') {
+            environment {
+                my_docker_pass = credentials('DOCKER_PASS')
+            }
+            steps {
+                sh 'docker build --tag etch-app .'
+                sh 'docker tag flask-app:latest maiale/repo:etch-app'
+                sh 'echo $my_docker_pass | docker login --username maiale --password-stdin'
+                sh 'docker push maiale/repo:etch-app'
+            }
         }
-      }
+        
+         stage('Deploy active containers website') {
+             steps {
+                 sh 'docker run -d -p 5000:5000 --name etch-app maiale/repo:etch-app'
+             }
+         }
+        
     }
-  }
 }
