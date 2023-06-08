@@ -25,7 +25,7 @@ pipeline {
         
          stage('Deploy active containers website') {
              steps {
-                 sh 'docker run -d -p 5000:5000 --name etch-app maiale/repo:etch-app'
+                 sh 'docker run -d -p 3000:3000 --name etch-app maiale/repo:etch-app'
              }
          }
         
